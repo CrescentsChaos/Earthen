@@ -9,4 +9,4 @@
 position = Vector2(562, 323)
 
 [node name="Slime" parent="." unique_id=882620938 instance=ExtResource("2_0wfyh")]
-position = Vector2(635, 338)
+position = Vector2(802, 318)
