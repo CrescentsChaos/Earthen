@@ -177,7 +177,7 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_1nuvc")
 animation = &"die"
 autoplay = "idle"
-frame_progress = 0.17623307
+frame_progress = 0.72448987
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1282084574]
 scale = Vector2(2, 2)

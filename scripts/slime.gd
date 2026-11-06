@@ -1,5 +1,6 @@
 extends CharacterBody2D
-const SPEED = 100.0
+const SPEED:int = 100
+const KNOCKBACK_FORCE: int = 100
 var health: int = 100
 var target = null
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -13,10 +14,15 @@ func _attack(delta: float) -> void:
 	var direction = (target.position - position).normalized()
 	position += direction * SPEED * delta
 	animated_sprite_2d.play("attack")
-func take_damage(damage: int) -> void:
+func take_damage(damage: int, attacker_position: Vector2) -> void:
 	health -= damage
 	take_damage_sound.play()
 	print(health)
+	#Knockback
+	var knockback_direction = (position - attacker_position).normalized()
+	var target_position = position + knockback_direction * KNOCKBACK_FORCE
+	var tween = create_tween()
+	tween.tween_property(self, "position",target_position, 0.5)
 func _on_sight_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		target = body
