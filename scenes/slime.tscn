@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dta3p0vp7t81n"]
 
 [ext_resource type="Texture2D" uid="uid://cr4mae4ma4nve" path="res://assets/images/enemies/Slime_Green.png" id="1_371uh"]
+[ext_resource type="Script" uid="uid://caen7acfk6gmm" path="res://scripts/slime.gd" id="1_p2gj0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p2gj0"]
 atlas = ExtResource("1_371uh")
@@ -162,7 +163,11 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_371uh"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_1nuvc"]
+radius = 150.0
+
 [node name="Slime" type="CharacterBody2D" unique_id=882620938]
+script = ExtResource("1_p2gj0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1634604770]
 scale = Vector2(2, 2)
@@ -174,3 +179,10 @@ frame_progress = 0.8844786
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1282084574]
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_371uh")
+
+[node name="Sight" type="Area2D" parent="." unique_id=706469240]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sight" unique_id=763498384]
+shape = SubResource("CircleShape2D_1nuvc")
+
+[connection signal="body_entered" from="Sight" to="." method="_on_sight_body_entered"]
