@@ -160,9 +160,17 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_371uh"]
+
 [node name="Slime" type="CharacterBody2D" unique_id=882620938]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1634604770]
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_1nuvc")
 animation = &"idle"
-frame_progress = 0.75975317
+autoplay = "idle"
+frame_progress = 0.39602935
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1282084574]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_371uh")
